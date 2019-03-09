@@ -7,5 +7,7 @@ target 'FOREXDemo' do
 
   pod 'Alamofire'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
   
 end

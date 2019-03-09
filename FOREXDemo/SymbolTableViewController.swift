@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Firebase
 
 extension UISearchController{
     
@@ -40,6 +41,8 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     
+    lazy var db = Firestore.firestore()
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     var symbols: [String] = []
@@ -59,8 +62,8 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
-        tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: "SymbolTableViewCell")
+        db.collection("example-collection").addDocument(data: ["Example": 123123])
+    
         
         let urlString = "https://forex.1forge.com/1.0.3/symbols?api_key=scKdc5njprJwBjonYn417rDniGrve9aM"
         Alamofire.request(urlString).responseJSON { response in

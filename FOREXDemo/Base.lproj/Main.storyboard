@@ -22,22 +22,34 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SymbolTableViewCell" textLabel="0tz-KT-6Cq" style="IBUITableViewCellStyleDefault" id="vhg-f5-UKv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SymbolTableViewCell" id="vhg-f5-UKv" customClass="SymbolTableViewCell" customModule="FOREXDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vhg-f5-UKv" id="9fD-YZ-HA2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0tz-KT-6Cq">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-LY-l7I">
+                                                    <rect key="frame" x="311" y="6.5" width="51" height="31"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7P-o2-NYK">
+                                                    <rect key="frame" x="30" y="22" width="0.0" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XBG-LY-l7I" firstAttribute="centerY" secondItem="9fD-YZ-HA2" secondAttribute="centerY" id="Cum-JF-W6u"/>
+                                                <constraint firstAttribute="trailing" secondItem="XBG-LY-l7I" secondAttribute="trailing" constant="15" id="VZ2-FW-D2M"/>
+                                                <constraint firstItem="j7P-o2-NYK" firstAttribute="leading" secondItem="9fD-YZ-HA2" secondAttribute="leadingMargin" constant="15" id="aDa-3J-cVW"/>
+                                                <constraint firstItem="j7P-o2-NYK" firstAttribute="centerY" secondItem="9fD-YZ-HA2" secondAttribute="centerY" id="inq-Tb-xaC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoriteSwitch" destination="XBG-LY-l7I" id="QXk-Ws-oKy"/>
+                                            <outlet property="titleView" destination="j7P-o2-NYK" id="QiS-21-1Bw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
