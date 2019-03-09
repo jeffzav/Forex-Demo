@@ -31,6 +31,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-LY-l7I">
                                                     <rect key="frame" x="311" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="favoriteSwitchValueChanged:" destination="vhg-f5-UKv" eventType="valueChanged" id="L6h-kg-4Lt"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7P-o2-NYK">
                                                     <rect key="frame" x="30" y="22" width="0.0" height="0.0"/>
@@ -48,7 +51,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="favoriteSwitch" destination="XBG-LY-l7I" id="QXk-Ws-oKy"/>
-                                            <outlet property="titleView" destination="j7P-o2-NYK" id="QiS-21-1Bw"/>
+                                            <outlet property="titleLabel" destination="j7P-o2-NYK" id="QiS-21-1Bw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

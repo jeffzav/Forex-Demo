@@ -10,24 +10,27 @@ import UIKit
 import Alamofire
 import Firebase
 
+
 extension UISearchController{
     
     var searchBarIsEmpty: Bool {
         // Returns true if the text is empty or nil
         return searchBar.text?.isEmpty ?? true
         
-        
     }
-    
     var isFiltering:Bool {
         return isActive && !searchBarIsEmpty
-        
-        
     }
 }
 
 
-class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, SymbolTableViewCellDelegate {
+    func symbolTableViewCellValueDidChange(_ cell: SymbolTableViewCell) {
+        let symbol = cell.titleLabel.text!
+        let value = cell.favoriteSwitch.isOn
+        favoritesData[symbol] = value
+        db.collection("favorites").document("currentUser").updateData(favoritesData)
+    }
     
     func updateSearchResults(for searchController: UISearchController) {
         
@@ -42,6 +45,7 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     
     lazy var db = Firestore.firestore()
+    var favoritesData: [String : Bool] = [:]  //need for firebase
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -54,6 +58,13 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsMultipleSelection = true
+        
+       // db.collection("favorites").addDocument(data: ["EURUSD": true, "USDCAD": false])
+        
+        db.collection("favorites").document("currentUser").addSnapshotListener { (snapshot, error) in
+            self.favoritesData = snapshot?.data() as? [String: Bool] ?? [:]
+            self.tableView.reloadData()
+        }
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -97,8 +108,14 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SymbolTableViewCell")!
-        cell.textLabel?.text = searchController.isFiltering ? filteredSymbols[indexPath.row] : symbols[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SymbolTableViewCell", for: indexPath) as! SymbolTableViewCell
+        let symbol: String = searchController.isFiltering ? filteredSymbols[indexPath.row] : symbols[indexPath.row]
+        cell.titleLabel.text = symbol
+        cell.favoriteSwitch.isOn = favoritesData[symbol] ?? false
+        cell.delegate = self
+            //favoritesData.contains { (snapshot: QueryDocumentSnapshot) -> Bool in
+            //return (snapshot[symbol] as? Bool) ?? false == true
+        //cell.textLabel?.text = searchController.isFiltering ? filteredSymbols[indexPath.row] : symbols[indexPath.row]
         cell.selectionStyle = .none
         let cellIsSelected = tableView.indexPathsForSelectedRows?.contains(indexPath) ?? false
         cell.accessoryType = cellIsSelected ? .checkmark : .none
@@ -121,5 +138,8 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
         doneBarButtonItem.isEnabled = (tableView.indexPathsForSelectedRows?.count ?? 0) > 0
     }
     
-    
 }
+
+    
+
+

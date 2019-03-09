@@ -39,8 +39,6 @@ class SymbolDetailViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
     }
-    
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currencyPairs.count
     }
