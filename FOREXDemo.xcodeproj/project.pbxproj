@@ -17,6 +17,7 @@
 		0DD0AAB9222B11C0009A7570 /* SymbolDetailTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DD0AAB8222B11C0009A7570 /* SymbolDetailTableHeaderView.xib */; };
 		0DD0AABB222B25D6009A7570 /* CurrencyPairTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD0AABA222B25D6009A7570 /* CurrencyPairTableViewCell.swift */; };
 		A9EC842769A3300CB7A376EA /* Pods_FOREXDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E692D8BED1ABF08CD282EC32 /* Pods_FOREXDemo.framework */; };
+		EE464C44223D4B0F00EFB072 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE464C43223D4B0F00EFB072 /* FavoritesViewController.swift */; };
 		EE8BE73D223442640071A4BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE8BE73C223442640071A4BA /* GoogleService-Info.plist */; };
 		EE8BE73F223455C40071A4BA /* SymbolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8BE73E223455C40071A4BA /* SymbolTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		6D7011B1D6597C7594A3CF75 /* Pods-FOREXDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOREXDemo.debug.xcconfig"; path = "Target Support Files/Pods-FOREXDemo/Pods-FOREXDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E357E2FC10CB320467926F05 /* Pods-FOREXDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOREXDemo.release.xcconfig"; path = "Target Support Files/Pods-FOREXDemo/Pods-FOREXDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E692D8BED1ABF08CD282EC32 /* Pods_FOREXDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOREXDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE464C43223D4B0F00EFB072 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		EE8BE73C223442640071A4BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE8BE73E223455C40071A4BA /* SymbolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 			children = (
 				0DD0AAA2222AD9E8009A7570 /* AppDelegate.swift */,
 				0DD0AAA4222AD9E8009A7570 /* SymbolTableViewController.swift */,
+				EE464C43223D4B0F00EFB072 /* FavoritesViewController.swift */,
 				0DD0AAB4222B093D009A7570 /* SymbolDetailViewController.swift */,
 				0DD0AAA6222AD9E8009A7570 /* Main.storyboard */,
 				EE8BE73E223455C40071A4BA /* SymbolTableViewCell.swift */,
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE464C44223D4B0F00EFB072 /* FavoritesViewController.swift in Sources */,
 				0DD0AAA5222AD9E8009A7570 /* SymbolTableViewController.swift in Sources */,
 				0DD0AAA3222AD9E8009A7570 /* AppDelegate.swift in Sources */,
 				0DD0AABB222B25D6009A7570 /* CurrencyPairTableViewCell.swift in Sources */,

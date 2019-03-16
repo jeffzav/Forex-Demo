@@ -86,12 +86,17 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
+        //super.prepare(for: segue, sender: sender)
         switch segue.identifier ?? "" {
         case "SymbolTableViewController_to_SymbolDetailViewController":
             guard let destination = segue.destination as? SymbolDetailViewController else {
-                fatalError() // you'e changed the class of the destination
+                return
+               // fatalError() // you'e changed the class of the destination
             }
+            
+            let selectedIndexPaths = tableView.indexPathsForSelectedRows ?? []
+            var selectedSymbols: [String] = []
+            
             for indexPath in tableView.indexPathsForSelectedRows ?? [] {
                 let passedSymbols = searchController.isFiltering ? filteredSymbols[indexPath.row] :
                     symbols[indexPath.row]
